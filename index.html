@@ -1,0 +1,12 @@
+<html>
+<meta charset="UTF-8">
+<script src="wasm_exec.js"></script>
+<script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("lib.wasm"), go.importObject)
+        .then((result) => go.run(result.instance));
+
+    console.log(getIPMac());
+</script>
+
+</html>
